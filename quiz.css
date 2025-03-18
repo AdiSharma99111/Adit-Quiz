@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap');
+
+body {
+    background: url('https://img.freepik.com/free-psd/3d-rendering-questions-background_23-2151455632.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+}
+
+
+#scoreDisplay {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 40px;
+    font-weight: bold;
+    color: rgb(0, 255, 26);
+    display: none; 
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+    background: url('https://img.freepik.com/free-psd/3d-rendering-questions-background_23-2151455632.jpg'); /* Same background as body */
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.question p {
+    margin: 0 0 10px;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0.5); 
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.question label {
+    display: block; 
+    margin-bottom: 5px;
+    background-color: rgba(255, 255, 255, 0.5); 
+    padding: 5px;
+    font-size: 18px; 
+    font-weight: bold; 
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; 
+}
+
+.question label:hover {
+    background-color: rgba(255, 255, 255, 0.8); 
+    color: blue; 
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#submitBtn {
+    background-color: greenyellow;
+    border: 3px solid black;
+    color: #333;
+}
+
+#resetBtn {
+    color: #333;
+    background-color: rgba(212, 34, 34, 0.863);
+    border: 3px solid black;
+}
