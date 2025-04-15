@@ -1,7 +1,7 @@
 document.getElementById('submitBtn').addEventListener('click', submitQuiz);
 document.getElementById('resetBtn').addEventListener('click', resetQuiz);
 
-let timerDuration = 30; // Timer in seconds
+let timerDuration = 20; // Timer in seconds
 let timerDisplay = document.getElementById('timerDisplay');
 let timeLeft = timerDuration;
 
@@ -60,7 +60,9 @@ function submitQuiz() {
     scoreDisplay.style.display = 'block';
 
     if (!allAnswered) {
-        alert('Time's up! Submitting your quiz now.');
+        alert("Not all questions were answered. Please review your quiz!");
+    } else {
+        alert("Quiz submitted successfully!");
     }
 }
 
