@@ -1,4 +1,24 @@
-document.getElementById('submitBtn').addEventListener('click', function(event) {
+document.getElementById('submitBtn').addEventListener('click', submitQuiz);
+document.getElementById('resetBtn').addEventListener('click', resetQuiz);
+
+let timerDuration = 30; // Timer in seconds
+let timerDisplay = document.getElementById('timerDisplay');
+let timeLeft = timerDuration;
+
+function startTimer() {
+    timerDisplay.style.display = "block";
+    let timer = setInterval(function() {
+        timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            clearInterval(timer);
+            submitQuiz(); // Auto-submit on time expiry
+        }
+    }, 1000);
+}
+
+function submitQuiz() {
     const questions = document.querySelectorAll('.question');
     let allAnswered = true;
     let score = 0;
@@ -19,8 +39,8 @@ document.getElementById('submitBtn').addEventListener('click', function(event) {
             if (input.checked) {
                 answered = true;
                 if (input.value === correctAnswer) {
-                    score += 20; // Make green color brighter
-                    input.parentElement.style.color = 'lime'; // Bright green color
+                    score += 20;
+                    input.parentElement.style.color = 'lime';
                 } else {
                     input.parentElement.style.color = 'red';
                 }
@@ -36,11 +56,17 @@ document.getElementById('submitBtn').addEventListener('click', function(event) {
     });
 
     const scoreDisplay = document.getElementById('scoreDisplay');
+    scoreDisplay.textContent = `Total Score: ${score} / 60`;
+    scoreDisplay.style.display = 'block';
+
     if (!allAnswered) {
-        alert('Please answer all questions before submitting.');
-        event.preventDefault();
-    } else {
-        scoreDisplay.textContent = `Total Score: ${score} / 60`;
-        scoreDisplay.style.display = 'block';
+        alert('Time's up! Submitting your quiz now.');
     }
-});
+}
+
+function resetQuiz() {
+    location.reload(); // Refresh the page to reset everything
+}
+
+// Start the timer when the page loads
+window.onload = startTimer;
