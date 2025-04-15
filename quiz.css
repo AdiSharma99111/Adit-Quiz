@@ -12,16 +12,31 @@ body {
 
 h1 {
     color: #333;
+    font-weight: bold;
 }
 
-#scoreDisplay, #timerDisplay {
+#timerDisplay {
     position: absolute;
     top: 20px;
     right: 20px;
     font-size: 20px;
     font-weight: bold;
     color: red;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 2px solid black; /* Added border */
+    border-radius: 5px;
+    padding: 5px; /* Padding inside the border */
     display: none;
+}
+
+#scoreDisplay {
+    font-size: 20px;
+    font-weight: bold;
+    color: green;
+    display: none;
+    position: absolute;
+    top: 60px; /* Adjusting to avoid overlap with timer */
+    right: 20px;
 }
 
 form {
